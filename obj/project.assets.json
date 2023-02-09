@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Елена\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\саша\\знакомство с языками программирования\\Домашнее задание_8\\Домашнее задание_8.csproj",
+      "projectUniqueName": "D:\\Саша\\Саша учеба\\С#\\Домашнее задание_8\\Домашнее задание_8.csproj",
       "projectName": "Домашнее задание_8",
-      "projectPath": "C:\\саша\\знакомство с языками программирования\\Домашнее задание_8\\Домашнее задание_8.csproj",
-      "packagesPath": "C:\\Users\\Елена\\.nuget\\packages\\",
-      "outputPath": "C:\\саша\\знакомство с языками программирования\\Домашнее задание_8\\obj\\",
+      "projectPath": "D:\\Саша\\Саша учеба\\С#\\Домашнее задание_8\\Домашнее задание_8.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Саша\\Саша учеба\\С#\\Домашнее задание_8\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Елена\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }
