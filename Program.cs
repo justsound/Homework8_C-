@@ -1,5 +1,5 @@
 ﻿Console.Clear();
-/* 
+
 void PrintMatrix(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -31,7 +31,10 @@ int[,] CreateMatrix(int row, int column, int leftside, int rightside)
     }
     return matr;
 }
- */
+
+
+
+
 // Найти произведение двух матриц
 
 /* int n = ReadInt("Введите количество строк в массиве: ");
@@ -91,21 +94,45 @@ for (int i = 0; i < matrix1.GetLength(0); i ++)
  */
 // PrintItogMassive(matrix1, minrow, mincol);
 
-//Сформировать трехмерный массив не повторяющимися двузначными числами показать его построчно на экран выводя индексы соответствующего элемента
+/* //Сформировать трехмерный массив не повторяющимися двузначными числами показать его построчно на экран выводя индексы соответствующего элемента
 
-/* Random rnd = new Random();
+Random rnd = new Random();
+
+int[] CreateMassiveElements(int count)
+{
+int[] elements = new int[count];
+for (int i = 0; i < elements.Length; i++)
+{
+    elements[i] = 10 + i;
+}
+for (int i = elements.Length - 1; i >= 1; i--)
+{
+   int j = rnd.Next(i + 1);
+   int temp = elements[j];
+   elements[j] = elements[i];
+   elements[i] = temp;
+}
+   return elements;
+}
+
+Console.WriteLine(string.Join(" ", CreateMassiveElements(50)));
 
 int[,,] CreateMatrix3(int row, int col, int lays)
 {
     int[,,] matr3 = new int[row, col, lays];
-
-    for (int i = 0; i < matr3.GetLength(0); i ++)
+    int[] massive = CreateMassiveElements(matr3.Length);
+    int m = 0;
+    while (m < massive.Length)
     {
-        for (int j = 0; j < matr3.GetLength(1); j ++)
+        for (int i = 0; i < matr3.GetLength(0); i++)
         {
-            for (int k = 0; k < matr3.GetLength(2); k ++)
+            for (int j = 0; j < matr3.GetLength(1); j++)
             {
-                   matr3[i, j, k] = rnd.Next(10,100);
+                for (int k = 0; k < matr3.GetLength(2); k++)
+                {
+                    matr3[i, j, k] = massive[m];
+                    m++;
+                }
             }
         }
     }
@@ -128,10 +155,14 @@ void PrintMatrix3(int[,,] matr3)
     }
 }
 
-int[,,] matrix3 = CreateMatrix3(2,2,2);
-PrintMatrix3(matrix3);
- */
+int x = ReadInt("Введите количество строк в массиве: ");
+int y = ReadInt("Введите количество столбцов в массиве: ");
+int z = ReadInt("Введите количество слоев в массиве: ");
 
+int[,,] matrix3 = CreateMatrix3(x, y, z);
+if (matrix3.Length < 90) PrintMatrix3(matrix3);
+else Console.WriteLine("Вывод невозможен"); 
+ */
 //Показать треугольник Паскаля *Сделать вывод в виде равнобедренного треугольника
 
 /* //Вариант1
