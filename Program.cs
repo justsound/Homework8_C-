@@ -32,32 +32,148 @@ int[,] CreateMatrix(int row, int column, int leftside, int rightside)
     return matr;
 }
 
-
-
-
-// Найти произведение двух матриц
-
-/* int n = ReadInt("Введите количество строк в массиве: ");
+// Составить частотный словарь элементов двумерного массива
+/* 
+int n = ReadInt("Введите количество строк в массиве: ");
 int m = ReadInt("Введите количество столбцов в массиве: ");
 int l = ReadInt("Введите границу левого диапазона чисел: ");
 int r = ReadInt("Введите границу правого диапазона чисел: ");
-int[,] matrix1 = CreateMatrix(n, m, l, r);
-PrintMatrix(matrix1);
-Console.WriteLine();
- */
-/* int[,] matrix2 = CreateMatrix(n, m, l, r);
-PrintMatrix(matrix2);
+int[,] matrix = CreateMatrix(n, m, l, r);
+PrintMatrix(matrix);
 Console.WriteLine();
 
-int[,] matr = new int[n, m];
-for (int i = 0; i < matrix1.GetLength(0); i ++)
+int[] CreateArray(int[,] matrix)
 {
-    for (int j = 0; j < matrix1.GetLength(1); j ++)
+    int[] array = new int[n * m];
+    int size = 0;
+    while (size < m * n)
     {
-        matr[i, j] = matrix1[i, j] * matrix2[i,j];
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                array[size] = matrix[i, j];
+                size++;
+            }
+        }
+    }
+    return array;
+}
+int[] array = CreateArray(matrix);
+
+Console.WriteLine(string.Join(", ", array));
+Console.WriteLine();
+
+void Count(int[] array)
+{
+    for (int temp = l; temp <= r; temp++)
+    {
+        int count = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == temp) count++;
+        }
+        if (count != 0)
+        {
+            double percent = (double)count * 100 / (double)array.Length;
+            Console.WriteLine($"{temp} встречается {count} раз(а). Частота {Math.Round(percent, 2)}%");
+        }
     }
 }
-PrintMatrix(matr); */
+Console.WriteLine("Частотный анализ может выглядеть так:");
+Count(array); */
+
+// на строках (вариант с сортировкой)
+
+Console.WriteLine("Введите текст");
+string res = Console.ReadLine()!; //ввод строки
+
+string[] array = new string[res.Length];
+for (int i = 0; i < res.Length; i++) array[i] = res[i].ToString(); //перевод строки в массив
+
+Array.Sort(array); // Сортировка массива { / / /k/k/k/k/l/l/l/l}
+                                        //0/1/2/3/4/5/6/7/8/9/10
+void PrintElementsFromSortArray(string[] array)
+{
+    int j = 0;
+    int firstPointer= -1;
+    while (j < array.Length)
+    {
+        while ((j < array.Length - 1) && (array[j] == array[j + 1]))
+        {
+            j++;
+        }
+        int counter = j - firstPointer;
+        Console.WriteLine($"Элемент '{array[j]}' встречается {counter.ToString()} раз. Частота вхождения {counter * 100 / array.Length} %. ");
+        firstPointer = j;
+        j++;
+    }
+}
+PrintElementsFromSortArray(array);
+
+/* string  CreateDictionary(int[] array)
+{
+    string dict = String.Empty;
+    dict += array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        int counter = 0;
+        for (int s = 0; s < dict.Length; s ++)
+        {
+            if (array[i] == dict[s]) 
+            {
+                counter ++;
+            }
+            else dict += array[i];
+        }
+    }
+    return dict;
+}
+
+CreateDictionary(array); */
+
+//https://learn.microsoft.com/ru-ru/dotnet/csharp/programming-guide/arrays/jagged-arrays
+
+
+
+
+
+
+
+
+
+//Найти произведение двух матриц
+/* 
+int n1 = ReadInt("Введите количество строк в первом массиве: ");
+int m1 = ReadInt("Введите количество столбцов в первом массиве: ");
+int l1 = ReadInt("Введите границу левого диапазона чисел: ");
+int r1 = ReadInt("Введите границу правого диапазона чисел: ");
+int[,] matrix1 = CreateMatrix(n1,m1,l1,r1);
+PrintMatrix(matrix1);
+Console.WriteLine();
+int n2 = ReadInt("Введите количество строк во втором массиве: ");
+int m2 = ReadInt("Введите количество столбцов во втором массиве: ");
+int l2 = ReadInt("Введите границу левого диапазона чисел: ");
+int r2 = ReadInt("Введите границу правого диапазона чисел: "); 
+int[,] matrix2 = CreateMatrix(n2,m2,l2,r2);
+PrintMatrix(matrix2);
+Console.WriteLine();
+if (m1 == n2)
+{
+    int[,] powmatrix = new int[n1, m2];
+    for (int i = 0; i < powmatrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < powmatrix.GetLength(1); j++)
+        {
+            for (int r = 0; r < n2; r++)
+            {
+                powmatrix[i, j] += matrix1[i, r] * matrix2[r, j];
+            }
+        }
+    }
+PrintMatrix(powmatrix); 
+}
+else Console.WriteLine("Матрицы не согласованы."); */
 
 //В двумерном массиве целых чисел. Удалить строку и столбец, на пересечении которых расположен наименьший элемент.
 
