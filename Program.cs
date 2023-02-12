@@ -111,37 +111,6 @@ void PrintElementsFromSortArray(string[] array)
 }
 PrintElementsFromSortArray(array);
 
-/* string  CreateDictionary(int[] array)
-{
-    string dict = String.Empty;
-    dict += array[0];
-    for (int i = 0; i < array.Length; i++)
-    {
-        int counter = 0;
-        for (int s = 0; s < dict.Length; s ++)
-        {
-            if (array[i] == dict[s]) 
-            {
-                counter ++;
-            }
-            else dict += array[i];
-        }
-    }
-    return dict;
-}
-
-CreateDictionary(array); */
-
-//https://learn.microsoft.com/ru-ru/dotnet/csharp/programming-guide/arrays/jagged-arrays
-
-
-
-
-
-
-
-
-
 //Найти произведение двух матриц
 /* 
 int n1 = ReadInt("Введите количество строк в первом массиве: ");
@@ -297,8 +266,7 @@ int[,] FillArray(int rows)
         {
             array[i, j] = array[i - 1, j - 1] + array[i - 1, j];
         }
-        
-    }
+     }
     return array;
 }
 
